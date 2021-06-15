@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"regexp"
-	"errors"
 )
 
 func main() {
@@ -43,30 +41,6 @@ func basicSearch(dir string, pattern string) []string {
 	}
 
 	return result
-}
-
-func containsDir(dir string) (bool, error) {
-	r, _ := regexp.Compile("^/$|(/[.a-zA-Z_0-9-]+)+$")
-	isPath := r.MatchString(dir)
-	var folderFiles []string
-	if !isPath {
-		return false, errors.New(fmt.Sprintf("%s doesn't look a folder linux path", dir))
-	} else {
-		files, err := os.ReadDir(dir)
-			if err != nil {
-				fmt.Println(err)
-			}
-		for _, file := range files {
-			if file.IsDir() {
-				folderFiles=append(folderFiles, filepath.Join(dir, file.Name()))
-			}
-		}
-	}
-	if len(folderFiles)==0 {
-		return false, nil
-	} else {
-		return true, nil
-	}
 }
 
 func listFolders(dir string) []string {
