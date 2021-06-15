@@ -77,7 +77,7 @@ func listFolders(dir string) []string {
 }
 
 func filterRegex(files []string, pattern string) []string {
-	pattern = strings.Replace(pattern, "'", "",-1)
+	pattern = strings.Replace(pattern, "'", "", -1)
 	r, _ := regexp.Compile(pattern)
 	var result []string
 	for _, file := range files {

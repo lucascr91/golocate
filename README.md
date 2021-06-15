@@ -1,6 +1,6 @@
 ### golocate
 
-A custom CLI to search for files written in Go
+A custom CLI to recursively search for files written in Go
 
 
 This is a simple implementation inspired in the Unix command line tool `locate`. Currently, the CLI has three functionalities: basic search, regex search, and contains search.
