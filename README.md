@@ -18,7 +18,7 @@ The regex search can be access using the flag `-r`:
 
 ```bash
 #matches all pdfs that starts with the word work, capitalized or not
-go run locate.go '(W|w)ork.*.pdf' -r
+go run locate.go '(W|w)ork.*pdf' -r
 ```
 
 contains search returns the files that contains the desired word:
